@@ -5,14 +5,15 @@ const userSchema = mongoose.Schema({
         type: String,
         maxlength: 50
     },
-    emial:{
+    email:{
         type: String,
         trim: true, //공백제거
         uniqe: 1
     },
     password: {
         type: String,
-        minlengh: 5
+        minlengh: 5,
+        maxlength:50
     },
     lastname: {
         type: String,
@@ -32,7 +33,7 @@ const userSchema = mongoose.Schema({
 })
 
 // 위 스키마를 모델로 감싸줌
-const User = mongoose.mode('User', userschema)
+const User = mongoose.model('User', userSchema)
 
 //다른파일에도 쓰기위해
 module.exports = { User }
